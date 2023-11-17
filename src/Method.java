@@ -33,6 +33,8 @@ public class Method {
         System.out.println(obj.isPizzaAvailibale("Doninos",'L',29.99));
         obj.isPizzaAvailibale("Pizza Hot ",'S',10.99);
 
+        System.out.println(obj.getDiscount(10,10,20));
+
     }
 
 
@@ -167,4 +169,15 @@ public class Method {
       return pizzaSize=='L';
 
     }
+
+    public double getTotal(int qte, double price){
+        double total=(qte*price);
+        return total;
+    }
+
+    public double getDiscount(int qte, double price,double discountPerecentage){
+        double discount = (getTotal(qte,price) - (getTotal(qte,price) * (discountPerecentage/100)));
+        return discount;
+    }
+
 }
