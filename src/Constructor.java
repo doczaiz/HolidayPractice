@@ -7,6 +7,7 @@ public class Constructor {
 
 // the constructor is a type of method and used to initialise an object( to create an object)
 // the constructor always created inside class level.
+// The constructor does not have any return type
 
     //  AccessModifier className / constructorName(){}
     public Constructor() {

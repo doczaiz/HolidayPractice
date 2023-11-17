@@ -2,19 +2,36 @@ public class Method {
 
 
     public static void main(String[] args) {
+        Method obj = new Method();
+        System.out.println("Non return type Method");
         Method.family();
         Method.doTotal();
+        obj.doSubstraction(100, 50, 90);
+        System.out.println("Return type Method");// static method
         System.out.println(Method.returnTotal());
         Method.returnTotal(); // it will do just a system.out.println
+        System.out.println(Method.result());
 
-        Method obj = new Method();
+        System.out.println("============================");
+
+
         System.out.println(obj.choice());
         System.out.println(obj.choice1());
-        System.out.println(Method.result());
+
         System.out.println(obj.testResult());
         System.out.println("============================");
-        System.out.println(obj.operation(10,90));
-        obj.operation(105,90);
+        System.out.println(obj.operation(100, 90));// to print non-static return type method
+        int value = obj.operation(105, 90);
+        System.out.println("Value :" + value);
+        obj.weatherForcast(65); // to print non-static non return type method
+
+        System.out.println("Weekly Salary : " + obj.weeklySalary(40.00, 45.00));
+        System.out.println("Yearly Salary : " + obj.yearlySalary(40, 45, 50));
+        System.out.println("yearly Income : "+ obj.yearlyIncome(40,45,52));
+
+        System.out.println(obj.isPizzaAvailibale("Doninos",'M',19.99));
+        System.out.println(obj.isPizzaAvailibale("Doninos",'L',29.99));
+        obj.isPizzaAvailibale("Pizza Hot ",'S',10.99);
 
     }
 
@@ -45,6 +62,10 @@ public class Method {
         int qte = 7;
         int total = qte * price;
         System.out.println("The Total Amount is: " + total);
+    }
+
+    public void doSubstraction(int num1, int num2, int num3) {
+        System.out.println("the substraction of this method is : " + ((num1 + num2) - num3));
     }
 
     //    ***** Return type of method *****
@@ -96,11 +117,11 @@ public class Method {
         if (x > y) {
             return (x > y) ? x : y;
         }
-        return (x>y) ? x: y;
+        return (x > y) ? x : y;
     }
 
 
-    public int operation(int x,int y) {
+    public int operation(int x, int y) {
         if (x > y) {
             return x;
         }
@@ -111,7 +132,39 @@ public class Method {
             return 0;
         }
 
-    return (x>y) ? x:y;
+        return (x > y) ? x : y;
     }
 
+    public double weeklySalary(double workingHour, double hourSalary) {
+        double wSalary = workingHour * hourSalary;
+        return wSalary;
+    }
+
+    public double yearlySalary(double workingHour, double hourSalary, int numberofWeeks) {
+        double ySalary = weeklySalary(workingHour, hourSalary);
+        return ySalary * numberofWeeks;
+    }
+
+    public double yearlyIncome(double workingHour, double hourSalary, int numberofWeeks) {
+        double yearlyIncome = (weeklySalary(workingHour, hourSalary)*numberofWeeks);
+        return yearlyIncome;
+    }
+
+
+    public void weatherForcast(int temperature) {
+        System.out.println("weather Forcast " + temperature);
+    }
+
+    public boolean isPizzaAvailibale(String pizzaName,char size,double price){
+        char pizzaSize = size;
+        double pizzaPrice = price;
+        if (pizzaSize == 'L') {
+            System.out.println(pizzaName +" Pizza "+" Size "+ pizzaSize + " is Availibale");
+        }
+        else{
+                System.out.println(pizzaName +" Pizza Size "+ size+ " not Availiable");
+            }
+      return pizzaSize=='L';
+
+    }
 }
