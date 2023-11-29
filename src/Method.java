@@ -34,6 +34,10 @@ public class Method {
         obj.isPizzaAvailibale("Pizza Hot ",'S',10.99);
 
         System.out.println(obj.getDiscount(10,10,20));
+        System.out.println(Method.getName("Rachid"," Zaizo"));
+        System.out.println(Method.getName1("Rachid","Zaizou"));
+        System.out.println(Method.getFullName("Joud","Zaizo"));
+        getStudentDeatails("Rachid","Zaizoun","555 avenue Bayonne NJ");
 
     }
 
@@ -178,6 +182,45 @@ public class Method {
     public double getDiscount(int qte, double price,double discountPerecentage){
         double discount = (getTotal(qte,price) - (getTotal(qte,price) * (discountPerecentage/100)));
         return discount;
+    }
+
+    public static String getName(String firstName, String lastname){
+        String name =firstName;
+        String lastName= lastname;
+        return name + lastName;
+    }
+    public static String getName1(String firstName, String lastname){
+        String name =firstName;
+        String lastName= lastname;
+        String getName1 = firstName+" "+lastName;
+        return getName1;
+    }
+
+
+    public static String getFirstName(String firstName){
+        return firstName;
+    }
+    public static String getLastName( String lastName){
+        return lastName;
+    }
+
+
+
+    public static String getFullName(String firstName,String lastName){
+        String fName = getFirstName(firstName);
+        String lname = getLastName(lastName);
+        String getFullName = fName + " "+lname;
+
+        return getFullName;
+    }
+
+    public static String getAddress( String address){
+        return address;
+    }
+
+    public static void getStudentDeatails(String fN, String lM,String address){
+        System.out.println("Student Deatails Information : "+ getFullName(fN,lM)+" "+getAddress(address));
+
     }
 
 }
